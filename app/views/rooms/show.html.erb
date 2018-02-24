@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenTok Hello World</title>
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script type="text/javascript">
+        var apiKey = '<%= 46067192 %>';
+        var sessionId = '<%= @room.sessionId %>';
+        var token = '<%= @tok_token %>';
+    </script>
+</head>
+<body>
+    <h2>Hello, World!</h2>
+
+    <div class="container">
+
+    <div id="publisher"></div>
+
+    <div id="subscribers"></div>
+    </div>
+</body>
+</html>
+
+<%= javascript_pack_tag "chatroom" %>

@@ -8,6 +8,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
+gem "opentok", "~> 3.0.2"
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
