@@ -1,4 +1,14 @@
 #publisher {
-  width: 100%;
+  width: 30%;
+  height: 47vh;
+}
+
+#subscribers {
+   width: 70%;
   height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
 }
