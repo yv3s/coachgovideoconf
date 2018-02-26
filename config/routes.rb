@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-
   devise_for :users
   root to: 'rooms#index'
+  resources :users, path: :questionnaire
   resources :rooms
   get '/autoeval', to: 'rooms#autoeval'
 
