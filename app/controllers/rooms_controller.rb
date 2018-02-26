@@ -1,4 +1,5 @@
 require "opentok"
+require 'typeform'
 
 class RoomsController < ApplicationController
   before_action :config_opentok, except: [:index]
@@ -8,14 +9,14 @@ class RoomsController < ApplicationController
     @new_room = Room.new
   end
 
-def create
-  @new_room = Room.new(room_params)
-  session = @opentok.create_session
-  @new_room.sessionId = session.session_id
-  if @new_room.save
-    redirect_to room_path(@new_room)
-  else
-    redirect_to rooms_path
+  def create
+    @new_room = Room.new(room_params)
+    session = @opentok.create_session
+    @new_room.sessionId = session.session_id
+    if @new_room.save
+      redirect_to room_path(@new_room)
+    else
+      redirect_to rooms_path
     end
   end
 
@@ -24,15 +25,19 @@ def create
     @tok_token = @opentok.generate_token @room.sessionId
   end
 
-  private
-  def config_opentok
-    if @opentok.nil?
-      @opentok = OpenTok::OpenTok.new "46067192", "f784261d09ecdb32a542f7927326589b19101b6d"
-    end
-  end
+  def autoeval
 
-  def room_params
-    params.require(:room).permit(:public, :name)
+end
+
+private
+def config_opentok
+  if @opentok.nil?
+    @opentok = OpenTok::OpenTok.new ENV["open_tok_api"], ENV["open_tok_secret"]
   end
+end
+
+def room_params
+  params.require(:room).permit(:public, :name)
+end
 
 end

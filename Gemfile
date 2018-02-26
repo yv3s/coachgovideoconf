@@ -9,6 +9,8 @@ gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
 gem "opentok", "~> 3.0.2"
+gem 'typeform'
+
 
 
 gem 'autoprefixer-rails'
